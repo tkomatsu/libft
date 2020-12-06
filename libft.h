@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 21:45:47 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/09/01 16:35:23 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2020/12/06 07:41:44 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # endif
+
+# define STATIC_MAX 10
 
 typedef struct	s_list
 {
@@ -72,7 +74,7 @@ int				ft_isdigit(int c);
 int				ft_isalnum(int c);
 int				ft_isascii(int c);
 int				ft_isprint(int c);
-int				ft_isspace(int c);	
+int				ft_isspace(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 
@@ -118,6 +120,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 							void (*del)(void *));
+void			ft_lstsort(t_list **lst, int (*f)(void*, void*));
 
 /*
 ** *****************************************************************************
@@ -125,6 +128,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 ** *****************************************************************************
 */
 
-int			get_next_line(int fd, char **line);
+int				get_next_line(int fd, char **line);
 
 #endif

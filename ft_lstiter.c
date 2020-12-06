@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 18:04:06 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/07/05 20:35:43 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2020/11/24 19:00:59 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !f)
-		;
-	else
+	if (lst && f)
 	{
-		(*f)(lst->content);
-		ft_lstiter(lst->next, (*f));
+		f(lst->content);
+		ft_lstiter(lst->next, f);
 	}
 }
