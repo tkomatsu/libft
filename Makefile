@@ -56,21 +56,19 @@ SRCS = ft_isalpha.c \
 	   ft_free.c
 OBJS = $(SRCS:.c=.o)
 
-%.o:%.c
-	@$(CC) -c -o $@ $<
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(LIBS) $(NAME) $(OBJS)
 	@echo "Compiled libft"
 
+.c.o:
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	@echo "Removing object files"
 	@rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean:
-	@echo "Removing object files and target"
 	@rm -f $(NAME) $(OBJS) $(OBJS_BONUS)
 
 re: fclean $(NAME)
