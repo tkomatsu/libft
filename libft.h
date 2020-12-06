@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 21:45:47 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/12/06 10:26:56 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2020/12/06 15:24:40 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(const char *haystack, const char *needle,
 							size_t len);
+int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *s);
 double			ft_atof(const char *s);
@@ -130,5 +131,13 @@ void			ft_lstsort(t_list **lst, int (*f)(void*, void*));
 */
 
 int				get_next_line(int fd, char **line);
+
+/*
+** *****************************************************************************
+** error management
+** *****************************************************************************
+*/
+
+int				ft_puterr(char *s, int errno);
 
 #endif

@@ -14,6 +14,7 @@ SRCS = ft_isalpha.c \
 	   ft_strlcat.c \
 	   ft_strlcpy.c \
 	   ft_strncmp.c \
+	   ft_strcmp.c \
 	   ft_strdup.c \
 	   ft_strchr.c  \
 	   ft_strrchr.c \
@@ -50,7 +51,8 @@ SRCS = ft_isalpha.c \
 	   get_next_line.c \
 	   ft_isspace.c \
 	   ft_strisf.c \
-	   ft_atof.c
+	   ft_atof.c \
+	   ft_puterr.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
