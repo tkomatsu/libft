@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 21:45:47 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/12/06 15:24:40 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2020/12/06 17:02:26 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void			ft_free(void *ptr);
 
 /*
 ** *****************************************************************************
