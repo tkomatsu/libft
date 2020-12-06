@@ -1,2 +1,2 @@
 # libft
-## original library for 42
+original library for 42
