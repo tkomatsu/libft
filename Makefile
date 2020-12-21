@@ -2,7 +2,7 @@ NAME = libft.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -I .
+INCLUDE = -I includes
 LIBS = ar -rc
 
 SRC_DIR = srcs/
@@ -17,6 +17,7 @@ FILES =	ft_isalpha.c \
 		ft_tolower.c \
 		ft_strlen.c \
 		ft_strlcat.c \
+		ft_strcat.c \
 		ft_strlcpy.c \
 		ft_strncmp.c \
 		ft_strcmp.c \
