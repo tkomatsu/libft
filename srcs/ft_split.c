@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 19:23:46 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/07/11 20:32:44 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2020/12/24 15:31:19 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ static unsigned int	my_nextstart(char const *s, char c, unsigned int i)
 
 static void			my_freeall(char **arr, size_t i)
 {
-	while (0 <= i)
+	while (0 < i)
 	{
 		free(*arr);
 		i--;
 	}
+	free(*arr);
 	free(arr);
 }
 
