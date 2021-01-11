@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/01/11 16:46:38 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/01/11 23:14:25 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <errno.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
@@ -142,5 +143,12 @@ int				get_next_line(int fd, char **line);
 */
 
 int				ft_puterr(char *s, int errno);
+
+/*
+** *****************************************************************************
+** environment variable
+** *****************************************************************************
+*/
+char			*ft_getenv(const char *name);
 
 #endif
