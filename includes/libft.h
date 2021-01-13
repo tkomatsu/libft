@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/01/11 23:14:25 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/01/13 10:37:01 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,6 @@ int				ft_puterr(char *s, int errno);
 ** *****************************************************************************
 */
 char			*ft_getenv(const char *name);
+int				ft_setenv(const char *name, const char *value, int overwrite);
 
 #endif

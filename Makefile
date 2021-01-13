@@ -61,6 +61,7 @@ FILES =	ft_isalpha.c \
 		ft_atof.c \
 		ft_puterr.c \
 		ft_getenv.c \
+		ft_setenv.c \
 		ft_free.c
 
 SRCS = $(addprefix $(SRC_DIR), $(FILES))
