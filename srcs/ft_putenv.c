@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getenv.c                                        :+:      :+:    :+:   */
+/*   ft_putenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 22:54:18 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/01/13 16:56:07 by tkomatsu         ###   ########.fr       */
+/*   Created: 2021/01/15 21:30:12 by tkomatsu          #+#    #+#             */
+/*   Updated: 2021/01/15 21:36:34 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_getenv(const char *name)
+int	ft_putenv(const char *string)
 {
-	extern char	**environ;
-	int			i;
-	int			namelen;
+	char	*tmp;
 
-	if (!name || !(namelen = ft_strlen(name)) || ft_strchr(name, '='))
+	if (!string || !(tmp = ft_strchr(string, '=')))
 	{
 		errno = EINVAL;
-		return (NULL);
+		return (-1);
 	}
-	i = 0;
-	while (environ[i])
-	{
-		if (!ft_strncmp(name, environ[i], namelen))
-			return (&(environ[i][namelen + sizeof("=") - 1]));
-		i++;
-	}
-	return (NULL);
+	*tmp = '\0';
+	return (ft_setenv(string, tmp + 1, 1));
 }

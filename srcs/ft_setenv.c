@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 09:51:45 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/01/13 11:37:40 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/01/15 21:25:31 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static char **env_realloc(char **environ, int len)
 		return (NULL);
 	}
 	ft_memcpy(ret, environ, (len - 1) * sizeof(char*));
-	free(environ);
 	return (ret);
 }
 
@@ -43,7 +42,6 @@ int	overwrite_setenv(const char *name, const char *value, int index)
 	ft_strlcpy(new, name, namelen);
 	ft_strlcpy(new + namelen, "=", 1);
 	ft_strlcpy(new + namelen + 1, value, valuelen);
-	free(environ[index]);
 	environ[index] = new;
 	return (0);
 }
@@ -64,13 +62,12 @@ int	ft_setenv(const char *name, const char *value, int overwrite)
 	int			namelen;
 	int			valuelen;
 
-	if (!name || *name == '\0' || ft_strchr(name, '='))
+	if (!name || !(namelen = ft_strlen(name)))
 	{
 		errno = EINVAL;
 		return (-1);
 	}
 	i = 0;
-	namelen = ft_strlen(name);
 	valuelen = ft_strlen(value);
 	while (environ[i])
 	{
