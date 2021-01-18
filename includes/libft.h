@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/01/18 20:05:46 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/01/18 22:13:42 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,13 @@
 # include <unistd.h>
 # include <limits.h>
 # include <errno.h>
-
-# include "ft_printf.h"
+# include <stdarg.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # endif
 
 # define STATIC_MAX 10
-
-typedef struct	s_list
-{
-	void			*content;
-	struct s_list	*next;
-}				t_list;
 
 /*
 ** *****************************************************************************
@@ -117,6 +110,12 @@ void			ft_putnbr_fd(int n, int fd);
 ** *****************************************************************************
 */
 
+typedef struct	s_list
+{
+	void			*content;
+	struct s_list	*next;
+}				t_list;
+
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 int				ft_lstsize(t_list *lst);
@@ -150,8 +149,48 @@ int				ft_puterr(char *s, int errno);
 ** environment variable
 ** *****************************************************************************
 */
+
 char			*ft_getenv(const char *name);
 int				ft_setenv(const char *name, const char *value, int overwrite);
 int				ft_putenv(const char *string);
+
+/*
+** -----------------------------------------------------------------------------
+** printf
+** -----------------------------------------------------------------------------
+*/
+
+typedef struct	s_fmt
+{
+	size_t	zero;
+	size_t	minus;
+	int		field;
+	int		precision;
+	char	sign;
+	int		capital;
+	int		base;
+}				t_fmt;
+
+char			ft_itoc(int c);
+int				ft_isflag(int c);
+int				ft_isconvert(int c);
+int				ft_isnotformat(int c);
+void			ft_putpad(size_t len, char padchar);
+size_t			ft_numlen(long long num, int base);
+
+t_fmt			ft_getattribute(const char *format, va_list ap);
+
+size_t			ft_putfmtc(t_fmt attribute, va_list ap);
+size_t			ft_putfmts(t_fmt attribute, va_list ap);
+size_t			ft_putfmtdi(t_fmt attribute, va_list ap);
+size_t			ft_putfmtux(t_fmt attribute, va_list ap, char conv);
+size_t			ft_putfmtp(t_fmt attribute, va_list ap);
+size_t			ft_putfmtpercent(t_fmt attribute);
+void			ft_putintpre(t_fmt attribute, long num);
+void			ft_putintpad(t_fmt attribute, long num);
+
+size_t			ft_putconvert(const char *format, t_fmt attribute, va_list ap);
+size_t			ft_putformat(const char *format, va_list ap);
+int				ft_printf(const char *format, ...);
 
 #endif
