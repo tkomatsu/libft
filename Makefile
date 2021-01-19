@@ -1,3 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
+#    Updated: 2021/01/19 22:09:59 by tkomatsu         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+_GREY	= \033[30m
+_RED	= \033[31m
+_GREEN	= \033[32m
+_YELLOW	= \033[33m
+_BLUE	= \033[34m
+_PURPLE	= \033[35m
+_CYAN	= \033[36m
+_WHITE	= \033[37m
+_END	= \033[0m
+
 NAME = libft.a
 
 CC = gcc
@@ -77,7 +99,7 @@ PTF_FILES = ft_getattribute.c \
 			ft_putintpre.c \
 			ft_putpad.c
 
-PRINTF_SRCS = $(addprefix $(PTF_DIR), $(PTF_FILES))
+PTF_SRCS = $(addprefix $(PTF_DIR), $(PTF_FILES))
 
 STDLIB_DIR = stdlib/
 
@@ -113,7 +135,14 @@ STR_SRCS = $(addprefix $(STR_DIR), $(STR_FILES))
 
 SRC_DIR = srcs/
 
-FILES = $(CTYPE_SRCS) $(ENV_SRCS) $(IO_SRCS) $(LIST_SRCS) $(MEM_SRCS) $(PTF_SRCS) $(STDLIB_SRCS) $(STR_SRCS)
+FILES = $(CTYPE_SRCS) \
+		$(ENV_SRCS) \
+		$(IO_SRCS) \
+		$(LIST_SRCS) \
+		$(MEM_SRCS) \
+		$(PTF_SRCS) \
+		$(STDLIB_SRCS) \
+		$(STR_SRCS)
 
 SRCS = $(addprefix $(SRC_DIR), $(FILES))
 
@@ -123,10 +152,11 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(LIBS) $(NAME) $(OBJS)
-	@echo "Compiled libft"
+	@echo "$(_END)\nCompiled libft"
 
 .c.o:
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	@printf "$(_GREEN)█"
 
 clean:
 	@rm -f $(OBJS) $(OBJS_BONUS)
