@@ -18,14 +18,6 @@ CTYPE_FILES = ft_isalnum.c \
 
 CTYPE_SRCS = $(addprefix $(CTYPE_DIR), $(CTYPE_FILES))
 
-ENV_DIR = environ/
-
-ENV_FILES = ft_getenv.c \
-			ft_putenv.c \
-			ft_setenv.c
-
-ENV_SRCS = $(addprefix $(ENV_DIR), $(ENV_FILES))
-
 IO_DIR = io/
 
 IO_FILES =  ft_putchar_fd.c \

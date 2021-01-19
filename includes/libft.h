@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/01/18 22:13:42 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/01/19 21:19:28 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,16 +143,6 @@ int				get_next_line(int fd, char **line);
 */
 
 int				ft_puterr(char *s, int errno);
-
-/*
-** *****************************************************************************
-** environment variable
-** *****************************************************************************
-*/
-
-char			*ft_getenv(const char *name);
-int				ft_setenv(const char *name, const char *value, int overwrite);
-int				ft_putenv(const char *string);
 
 /*
 ** -----------------------------------------------------------------------------
