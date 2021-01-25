@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/01/19 22:09:59 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/01/25 09:18:30 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,18 +135,16 @@ STR_SRCS = $(addprefix $(STR_DIR), $(STR_FILES))
 
 SRC_DIR = srcs/
 
-FILES = $(CTYPE_SRCS) \
-		$(ENV_SRCS) \
-		$(IO_SRCS) \
-		$(LIST_SRCS) \
-		$(MEM_SRCS) \
-		$(PTF_SRCS) \
-		$(STDLIB_SRCS) \
-		$(STR_SRCS)
+SRC_FILES = $(CTYPE_SRCS) \
+			$(IO_SRCS) \
+			$(LIST_SRCS) \
+			$(MEM_SRCS) \
+			$(PTF_SRCS) \
+			$(STDLIB_SRCS) \
+			$(STR_SRCS)
 
-SRCS = $(addprefix $(SRC_DIR), $(FILES))
-
-OBJS = $(SRCS:.c=.o)
+OBJ_DIR = objs/
+OBJS = $(SRC_FILES:%.c=$(OBJ_DIR)%.o)
 
 all: $(NAME)
 
@@ -154,15 +152,27 @@ $(NAME): $(OBJS)
 	@$(LIBS) $(NAME) $(OBJS)
 	@echo "$(_END)\nCompiled libft"
 
-.c.o:
-	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+$(OBJS): $(OBJ_DIR)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@ 
 	@printf "$(_GREEN)█"
 
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)$(CTYPE_DIR)
+	@mkdir -p $(OBJ_DIR)$(IO_DIR)
+	@mkdir -p $(OBJ_DIR)$(LIST_DIR)
+	@mkdir -p $(OBJ_DIR)$(MEM_DIR)
+	@mkdir -p $(OBJ_DIR)$(PTF_DIR)
+	@mkdir -p $(OBJ_DIR)$(STDLIB_DIR)
+	@mkdir -p $(OBJ_DIR)$(STR_DIR)
+
 clean:
-	@rm -f $(OBJS) $(OBJS_BONUS)
+	@rm -rf $(OBJ_DIR)
 
 fclean:
-	@rm -f $(NAME) $(OBJS) $(OBJS_BONUS)
+	@rm -rf $(NAME) $(OBJ_DIR)
 
 re: fclean $(NAME)
 
