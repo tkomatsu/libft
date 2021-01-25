@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/01/25 09:18:30 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/01/25 09:30:21 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,6 +114,7 @@ STDLIB_SRCS = $(addprefix $(STDLIB_DIR), $(STDLIB_FILES))
 STR_DIR = string/
 
 STR_FILES = ft_free_split.c \
+			ft_parse_esc.c \
 			ft_split.c \
 			ft_strcat.c \
 			ft_strchr.c  \
