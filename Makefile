@@ -32,6 +32,8 @@ CTYPE_DIR = ctype/
 CTYPE_FILES = ft_isalnum.c \
 			  ft_isalpha.c \
 			  ft_isascii.c \
+			  ft_isblank.c \
+			  ft_iscntrl.c \
 			  ft_isdigit.c \
 			  ft_isprint.c \
 			  ft_isspace.c \
