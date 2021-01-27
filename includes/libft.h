@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/01/25 09:29:48 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:20:23 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ char			*ft_strnstr(const char *haystack, const char *needle,
 							size_t len);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
+int				ft_strcasecmp(const char *s1, const char *s2);
+int				ft_strncasecmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *s);
 double			ft_atof(const char *s);
 char			*ft_strisf(const char *s, int (*f)(int));

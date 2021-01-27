@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/01/25 09:30:21 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/01/27 15:19:49 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,6 +118,7 @@ STR_DIR = string/
 STR_FILES = ft_free_split.c \
 			ft_parse_esc.c \
 			ft_split.c \
+			ft_strcasecmp.c \
 			ft_strcat.c \
 			ft_strchr.c  \
 			ft_strcmp.c \
@@ -128,6 +129,7 @@ STR_FILES = ft_free_split.c \
 			ft_strlcpy.c \
 			ft_strlen.c \
 			ft_strmapi.c \
+			ft_strncasecmp.c \
 			ft_strncmp.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
