@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/01/27 15:20:23 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/01/28 11:11:11 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int				ft_strncasecmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *s);
 double			ft_atof(const char *s);
 char			*ft_strisf(const char *s, int (*f)(int));
+char			*ft_strtok_r(char *s, const char *delim, char **last);
+char			*ft_strtok(char *s, const char *delim);
 
 /*
 ** *****************************************************************************

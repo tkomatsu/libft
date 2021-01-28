@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/01/27 15:19:49 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/01/28 11:12:01 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -133,6 +133,8 @@ STR_FILES = ft_free_split.c \
 			ft_strncmp.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
+			ft_strtok.c \
+			ft_strtok_r.c \
 			ft_strtrim.c \
 			ft_substr.c
 
