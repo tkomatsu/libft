@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 21:13:17 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/07/10 21:35:39 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/02/10 09:25:24 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *src)
 
 	len = ft_strlen(src);
 	i = 0;
-	result = (char*)malloc(sizeof(char) * (len + 1));
+	result = malloc(sizeof(char) * (len + 1));
 	if (result == 0)
 		return (0);
 	while (src[i])
