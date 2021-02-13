@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/01/28 11:11:11 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/02/13 18:02:40 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdarg.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
+#  define BUFFER_SIZE 4096
 # endif
 
 # define STATIC_MAX 10
