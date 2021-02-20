@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 10:55:46 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/08/13 16:12:38 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/02/20 09:26:39 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ size_t	ft_putfmtpercent(t_fmt attribute)
 	{
 		if (attribute.minus == 0)
 			ft_putpad(attribute.field - 1, pad);
-		ft_putchar_fd('%', 1);
+		ft_putchar_fd('%', STDOUT);
 		if (attribute.minus)
 			ft_putpad(attribute.field - 1, pad);
 		return ((size_t)attribute.field);
 	}
-	ft_putchar_fd('%', 1);
+	ft_putchar_fd('%', STDOUT);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 19:57:04 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/08/16 20:11:24 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/02/20 09:27:08 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void		my_putintpre(t_fmt attribute, unsigned int num)
 	if (attribute.precision == 0 && num == 0)
 		return ;
 	if (attribute.sign)
-		ft_putchar_fd(attribute.sign, 1);
+		ft_putchar_fd(attribute.sign, STDOUT);
 	if (attribute.precision > (int)ft_numlen(num, attribute.base))
 		ft_putpad(attribute.precision -
 					(int)ft_numlen(num, attribute.base), '0');

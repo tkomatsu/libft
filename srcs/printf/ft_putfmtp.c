@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 19:57:04 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/08/16 20:11:37 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/02/20 09:25:03 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ static void		my_putptrpre(t_fmt attribute, unsigned long num)
 	if (attribute.precision == 0)
 		return ;
 	if (attribute.sign)
-		ft_putchar_fd(attribute.sign, 1);
+		ft_putchar_fd(attribute.sign, STDOUT);
 	if (attribute.precision > (int)ft_numlen(num, attribute.base))
 		ft_putpad(attribute.precision -
 			(int)ft_numlen(num, attribute.base), '0');
 	if (num == 0)
-		ft_putchar_fd('0', 1);
+		ft_putchar_fd('0', STDOUT);
 	else
 		my_putnbr_bs(attribute, num);
 }
@@ -110,7 +110,7 @@ size_t			ft_putfmtp(t_fmt attribute, va_list ap)
 		attribute.zero = 0;
 	if (attribute.minus == 0)
 		my_putptrpad(attribute, ptr);
-	ft_putstr_fd("0x", 1);
+	ft_putstr_fd("0x", STDOUT);
 	my_putptrpre(attribute, ptr);
 	if (attribute.minus)
 		my_putptrpad(attribute, ptr);

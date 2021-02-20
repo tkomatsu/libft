@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 19:30:39 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/08/13 16:55:54 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/02/20 09:27:58 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putpad(size_t len, char padchar)
 	i = 0;
 	while (i < len)
 	{
-		ft_putchar_fd(padchar, 1);
+		ft_putchar_fd(padchar, STDOUT);
 		i++;
 	}
 }

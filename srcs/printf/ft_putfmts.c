@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/31 08:22:36 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/08/01 22:40:58 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/02/20 09:26:48 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ size_t	ft_putfmts(t_fmt attribute, va_list ap)
 				write(1, (attribute.zero == 0 ? " " : "0"), 1);
 		write(1, ans, width);
 		while (i++ < (attribute.field - width))
-			write(1, " ", 1);
+			write(STDOUT, " ", 1);
 	}
 	else
 		write(1, ans, width);
