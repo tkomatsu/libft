@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/01/28 11:12:01 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/02/24 11:07:45 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I includes
 LIBS = ar -rc
+DEBUG_FLAGS = -g3
 
 CTYPE_DIR = ctype/
 
@@ -133,10 +134,12 @@ STR_FILES = ft_free_split.c \
 			ft_strncmp.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
+			ft_strssort.c \
 			ft_strtok.c \
 			ft_strtok_r.c \
 			ft_strtrim.c \
-			ft_substr.c
+			ft_substr.c \
+			ft_swap.c
 
 STR_SRCS = $(addprefix $(STR_DIR), $(STR_FILES))
 
@@ -182,5 +185,13 @@ fclean:
 	@rm -rf $(NAME) $(OBJ_DIR)
 
 re: fclean $(NAME)
+
+debug: CFLAGS += $(DEBUG_FLAGS)
+debug: re
+
+test: debug
+	@$(CC) $(CFLAGS) $(INCLUDE) -g3 -L. -lft -o grademe test/main.c
+	@./grademe
+	@rm grademe
 
 .PHONY	: all clean fclean re
