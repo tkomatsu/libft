@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/02/25 16:34:21 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/02/25 16:45:59 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,6 @@ STDLIB_DIR = stdlib/
 STDLIB_FILES = ft_atof.c \
 				ft_atoi.c \
 				ft_calloc.c \
-				ft_free.c \
 				ft_itoa.c
 
 STDLIB_SRCS = $(addprefix $(STDLIB_DIR), $(STDLIB_FILES))
