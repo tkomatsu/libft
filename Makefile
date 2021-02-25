@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/02/24 11:07:45 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/02/25 16:10:43 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ IO_DIR = io/
 
 IO_FILES =  ft_putchar_fd.c \
 			ft_putendl_fd.c \
-			ft_puterr.c \
 			ft_putnbr_fd.c \
 			ft_putstr_fd.c \
 			get_next_line.c
@@ -134,12 +133,10 @@ STR_FILES = ft_free_split.c \
 			ft_strncmp.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
-			ft_strssort.c \
 			ft_strtok.c \
 			ft_strtok_r.c \
 			ft_strtrim.c \
-			ft_substr.c \
-			ft_swap.c
+			ft_substr.c
 
 STR_SRCS = $(addprefix $(STR_DIR), $(STR_FILES))
 
