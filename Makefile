@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/02/25 16:10:43 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/02/25 16:34:21 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,29 +80,6 @@ MEM_FILES = ft_bzero.c \
 
 MEM_SRCS = $(addprefix $(MEM_DIR), $(MEM_FILES))
 
-PTF_DIR = printf/
-
-PTF_FILES = ft_getattribute.c \
-			ft_isconvert.c \
-			ft_isflag.c \
-			ft_isnotformat.c \
-			ft_itoc.c \
-			ft_numlen.c \
-			ft_printf.c \
-			ft_putconvert.c \
-			ft_putfmtc.c \
-			ft_putfmtdi.c \
-			ft_putfmtp.c \
-			ft_putfmtpercent.c \
-			ft_putfmts.c \
-			ft_putfmtux.c \
-			ft_putformat.c \
-			ft_putintpad.c \
-			ft_putintpre.c \
-			ft_putpad.c
-
-PTF_SRCS = $(addprefix $(PTF_DIR), $(PTF_FILES))
-
 STDLIB_DIR = stdlib/
 
 STDLIB_FILES = ft_atof.c \
@@ -146,7 +123,6 @@ SRC_FILES = $(CTYPE_SRCS) \
 			$(IO_SRCS) \
 			$(LIST_SRCS) \
 			$(MEM_SRCS) \
-			$(PTF_SRCS) \
 			$(STDLIB_SRCS) \
 			$(STR_SRCS)
 

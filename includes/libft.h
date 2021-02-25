@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/02/25 16:09:26 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/02/25 16:33:45 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,44 +146,5 @@ void			ft_lstsort(t_list **lst, int (*f)(void*, void*));
 */
 
 int				get_next_line(int fd, char **line);
-
-/*
-** -----------------------------------------------------------------------------
-** printf
-** -----------------------------------------------------------------------------
-*/
-
-typedef struct	s_fmt
-{
-	size_t	zero;
-	size_t	minus;
-	int		field;
-	int		precision;
-	char	sign;
-	int		capital;
-	int		base;
-}				t_fmt;
-
-char			ft_itoc(int c);
-int				ft_isflag(int c);
-int				ft_isconvert(int c);
-int				ft_isnotformat(int c);
-void			ft_putpad(size_t len, char padchar);
-size_t			ft_numlen(long long num, int base);
-
-t_fmt			ft_getattribute(const char *format, va_list ap);
-
-size_t			ft_putfmtc(t_fmt attribute, va_list ap);
-size_t			ft_putfmts(t_fmt attribute, va_list ap);
-size_t			ft_putfmtdi(t_fmt attribute, va_list ap);
-size_t			ft_putfmtux(t_fmt attribute, va_list ap, char conv);
-size_t			ft_putfmtp(t_fmt attribute, va_list ap);
-size_t			ft_putfmtpercent(t_fmt attribute);
-void			ft_putintpre(t_fmt attribute, long num);
-void			ft_putintpad(t_fmt attribute, long num);
-
-size_t			ft_putconvert(const char *format, t_fmt attribute, va_list ap);
-size_t			ft_putformat(const char *format, va_list ap);
-int				ft_printf(const char *format, ...);
 
 #endif
