@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 12:55:27 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/02/10 09:23:52 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:24:54 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_lst;
 
-	if (!(new_lst = malloc(sizeof(t_list))))
+	new_lst = malloc(sizeof(t_list));
+	if (!new_lst)
 		return (NULL);
 	new_lst->content = content;
 	new_lst->next = NULL;

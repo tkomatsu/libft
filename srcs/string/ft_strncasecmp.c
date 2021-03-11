@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 21:01:49 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/02/27 13:20:09 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:33:37 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int	ft_strncasecmp(const char *s1, const char *s2, size_t n)
 		i++;
 	}
 	return ((unsigned char)ft_tolower(s1[i])
-			- (unsigned char)ft_tolower(s2[i]));
+		- (unsigned char)ft_tolower(s2[i]));
 }

@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/05 18:05:47 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/07/11 08:53:34 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:24:26 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst || !f)
 		return (NULL);
-	if (!(head = ft_lstnew(f(lst->content))))
+	head = ft_lstnew(f(lst->content));
+	if (!head)
 	{
 		ft_lstdelone(head, del);
 		return (NULL);
@@ -27,7 +28,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	lst = lst->next;
 	while (lst)
 	{
-		if (!(new = ft_lstnew(f(lst->content))))
+		new = ft_lstnew(f(lst->content));
+		if (!new)
 		{
 			ft_lstclear(&head, del);
 			return (NULL);

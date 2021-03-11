@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 21:18:44 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/12/06 07:43:32 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:25:29 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static t_list	*ft_mergesort(t_list *lst, int (*f)(void*, void*))
 	return (ft_merge(ft_mergesort(lst, f), ft_mergesort(x, f), f));
 }
 
-void			ft_lstsort(t_list **lst, int (*f)(void*, void*))
+void	ft_lstsort(t_list **lst, int (*f)(void*, void*))
 {
 	t_list	*result;
 

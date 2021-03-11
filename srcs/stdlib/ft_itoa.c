@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 22:03:58 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/07/03 10:01:53 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:30:08 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static size_t	my_numlen(long num)
 	return (len);
 }
 
-static void		my_itoa(char *s, long num, int *i)
+static void	my_itoa(char *s, long num, int *i)
 {
 	if (num < 0)
 	{
@@ -52,7 +52,7 @@ static void		my_itoa(char *s, long num, int *i)
 	}
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*res;
 	long	num;
@@ -61,7 +61,8 @@ char			*ft_itoa(int n)
 
 	num = (long)n;
 	numlen = my_numlen(num);
-	if ((res = ft_calloc(numlen + 1, sizeof(char))) == NULL)
+	res = ft_calloc(numlen + 1, sizeof(char));
+	if (!res)
 		return (NULL);
 	i = 0;
 	if (num == 0)

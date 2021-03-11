@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 21:41:14 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/07/11 09:03:44 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:33:23 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (NULL);
-	if (!(res = ft_calloc(ft_strlen(s) + 1, sizeof(char))))
+	res = ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (!res)
 		return (NULL);
 	i = 0;
 	while (i < ft_strlen(s))

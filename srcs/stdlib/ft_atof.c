@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/01 16:28:11 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/12/04 07:52:53 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:26:29 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ double	ft_atof(const char *s)
 	i = 0;
 	while (ft_isspace(s[i]))
 		i++;
-	sign = (s[i] == '-') ? -1 : 1;
+	sign = 1;
+	if (s[i] == '-')
+		sign = -1;
 	if (s[i] == '-' || s[i] == '+')
 		i++;
 	val = 0.0;

@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 17:22:40 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/02/10 09:26:20 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:37:10 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == NULL || ft_strlen(s) < start)
 		return (ft_strdup(""));
-	if (!(res = ft_calloc(len + 1, sizeof(char))))
+	res = ft_calloc(len + 1, sizeof(char));
+	if (!res)
 		return (NULL);
 	i = 0;
 	k = 0;

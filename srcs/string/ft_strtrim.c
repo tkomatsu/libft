@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 21:21:35 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/03/02 23:54:07 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:36:50 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	ft_strrchrset(char const *s1, char const *set)
 	return (i);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*ans;
 	int		start;
@@ -57,7 +57,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	len = (size_t)(end - start + 1);
 	if (!s1[start])
 		len = 0;
-	if ((ans = malloc((len + 1) * sizeof(char))) == NULL)
+	ans = malloc((len + 1) * sizeof(char));
+	if (!ans)
 		return (NULL);
 	ft_memcpy(ans, s1 + start, len);
 	ans[len] = '\0';

@@ -6,11 +6,20 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 22:24:54 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/07/05 09:14:51 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:29:28 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	get_sign(char c)
+{
+	if (c == '-')
+		return (-1);
+	else if (c == '+')
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -21,12 +30,11 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	result = 0;
 	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
-			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	while (ft_isspace(str[i]))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
-		sign *= (str[i] == '-' ? (-1) : 1);
+		sign *= get_sign(str[i]);
 		i++;
 	}
 	if ('0' <= str[i] && str[i] <= '9')

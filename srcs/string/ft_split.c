@@ -6,13 +6,13 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 19:23:46 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/12/24 15:31:19 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:31:26 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t		my_strcount(char const *s, char c)
+static size_t	my_strcount(char const *s, char c)
 {
 	size_t	i;
 	size_t	res;
@@ -28,7 +28,7 @@ static size_t		my_strcount(char const *s, char c)
 	return (res);
 }
 
-static size_t		my_strclen(const char *s, char c)
+static size_t	my_strclen(const char *s, char c)
 {
 	size_t	i;
 
@@ -45,7 +45,7 @@ static unsigned int	my_nextstart(char const *s, char c, unsigned int i)
 	return (i);
 }
 
-static void			my_freeall(char **arr, size_t i)
+static void	my_freeall(char **arr, size_t i)
 {
 	while (0 < i)
 	{
@@ -56,7 +56,7 @@ static void			my_freeall(char **arr, size_t i)
 	free(arr);
 }
 
-char				**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char			**ans;
 	unsigned int	start;
@@ -64,13 +64,15 @@ char				**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	if (!(ans = ft_calloc(my_strcount(s, c) + 1, sizeof(char *))))
+	ans = ft_calloc(my_strcount(s, c) + 1, sizeof(char *));
+	if (!ans)
 		return (NULL);
 	start = my_nextstart(s, c, 0);
 	i = 0;
 	while (i < my_strcount(s, c))
 	{
-		if (!(ans[i] = ft_substr(s, start, my_strclen((s + start), c))))
+		ans[i] = ft_substr(s, start, my_strclen((s + start), c));
+		if (!ans[i])
 		{
 			my_freeall(ans, i);
 			return (NULL);

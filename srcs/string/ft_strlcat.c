@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/27 09:18:11 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/07/09 20:13:29 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:32:57 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t total;
-	size_t len;
+	size_t	total;
+	size_t	len;
 
 	len = size;
 	total = ft_strlen(dst) + ft_strlen(src);
