@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/02/25 16:45:59 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/03/12 17:31:18 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,11 +57,13 @@ LIST_DIR = list/
 
 LIST_FILES = ft_lstadd_front.c \
 			ft_lstadd_back.c \
+			ft_lstat.c \
 			ft_lstclear.c \
 			ft_lstdelone.c \
 			ft_lstiter.c \
 			ft_lstlast.c \
 			ft_lstmap.c \
+			ft_lstmerge.c \
 			ft_lstnew.c \
 			ft_lstsize.c \
 			ft_lstsort.c

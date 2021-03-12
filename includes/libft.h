@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/03/11 21:09:11 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/12 17:32:27 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,8 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 void			ft_lstsort(t_list **lst, int (*f)(void*, void*));
+t_list			*ft_lstat(t_list *list_ptr, unsigned int nbr);
+void			ft_lstmerge(t_list **list1, t_list *list2);
 
 /*
 ** *****************************************************************************
