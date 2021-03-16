@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/03/12 17:31:18 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/03/16 11:36:55 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,10 @@ CTYPE_FILES = ft_isalnum.c \
 			  ft_isblank.c \
 			  ft_iscntrl.c \
 			  ft_isdigit.c \
+			  ft_islower.c \
 			  ft_isprint.c \
 			  ft_isspace.c \
+			  ft_isupper.c \
 			  ft_tolower.c \
 			  ft_toupper.c
 
@@ -87,7 +89,8 @@ STDLIB_DIR = stdlib/
 STDLIB_FILES = ft_atof.c \
 				ft_atoi.c \
 				ft_calloc.c \
-				ft_itoa.c
+				ft_itoa.c \
+				ft_strtol.c
 
 STDLIB_SRCS = $(addprefix $(STDLIB_DIR), $(STDLIB_FILES))
 

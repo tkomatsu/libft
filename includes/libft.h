@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/03/12 17:32:27 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/16 11:36:26 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int				ft_iscntrl(int c);
 int				ft_isdigit(int c);
 int				ft_isprint(int c);
 int				ft_isspace(int c);
+int				ft_isupper(int c);
+int				ft_islower(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 
@@ -103,6 +105,7 @@ void			ft_free_split(char **strs);
 char			*ft_itoa(int n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			ft_parse_esc(char *src);
+long			ft_strtol(const char *s, char **endptr, int base);
 
 /*
 ** *****************************************************************************
