@@ -5,89 +5,86 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 15:45:35 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/03/16 16:13:55 by tkomatsu         ###   ########.fr       */
+/*   Created: 2021/03/16 21:41:29 by tkomatsu          #+#    #+#             */
+/*   Updated: 2021/03/17 15:01:05 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	define_base(const char *s, int *base)
+void	base_check(const char **nptr, int *base)
 {
-	int	i;
-
-	i = 0;
-	if ((*base == 0 || *base == 16) && *s == '0'
-		&& (*(s + 1) == 'x' || *(s + 1) == 'X'))
+	if ((*base == 0 || *base == 16) && !ft_strncasecmp(*nptr, "0x", 2))
 	{
 		*base = 16;
-		i = 2;
+		*nptr += 2;
 	}
 	if (*base == 0)
 	{
 		*base = 10;
-		if (*s == '0')
+		if (**nptr == '0')
+		{
+			*nptr += 1;
 			*base = 8;
+		}
 	}
-	return (i);
 }
 
-int	get_sign(const char *s)
+int	get_sign(const char **nptr)
 {
-	if (*s == '-')
+	if (**nptr == '-')
+	{
+		*nptr += 1;
 		return (-1);
+	}
+	if (**nptr == '+')
+		*nptr += 1;
 	return (1);
 }
 
-int	getnum(char c)
+unsigned long	get_num(unsigned long abs, const char *nptr, int base, unsigned long limit)
 {
-	if (ft_isdigit(c))
-		return (c - '0');
-	if (ft_isupper(c))
-		return (c - 'A' + 10);
-	return (c - 'a' + 10);
+	int	c;
+
+	if (ft_isdigit(*nptr))
+		c = *nptr - '0';
+	else
+	{
+		c = *nptr - 'a' + 10;
+		if (ft_isupper(*nptr))
+			c = *nptr - 'A' + 10;
+	}
+	abs = abs * base + c;
+	if (limit < abs)
+		errno = ERANGE;
+	return (abs);
 }
 
-long	ft_strtol(const char *s, char **endptr, int base)
+long	ft_strtol(const char *nptr, char **endptr, int base)
 {
+	unsigned long	abs;
 	int				sign;
-	int				c;
 	unsigned long	limit;
-	unsigned long	ret;
 
-	while (ft_isspace(*s))
-		s++;
-	sign = get_sign(s);
-	if (*s == '-' || *s == '+')
-		s++;
-	s += define_base(s, &base);
+	while (ft_isspace(*nptr))
+		nptr++;
+	sign = get_sign(&nptr);
+	base_check(&nptr, &base);
 	limit = LONG_MAX;
 	if (sign < 0)
 		limit--;
-	while (*s)
+	while (ft_isalnum(*nptr))
 	{
-		if (ft_isalnum(*s))
-			c = getnum(*s);
-		if (!ft_isalnum(*s) || c >= base)
+		abs = get_num(abs, nptr, base, sign);
+		nptr++;
+		if (errno)
 			break ;
-		if (ret > limit)
-		{
-			errno = ERANGE;
-			break ;
-		}
-		else
-			ret = ret * base + c;
-		s++;
 	}
 	if (endptr)
-		*endptr = (char *)s;
-	if (errno == ERANGE)
-	{
-		if (sign < 0)
-			return (LONG_MIN);
+		*endptr = (char *)nptr;
+	if (errno == ERANGE && sign < 0)
+		return (LONG_MIN);
+	else if (errno == ERANGE)
 		return (LONG_MAX);
-	}
-	if (sign < 0)
-		ret *= -1;
-	return (ret);
+	return ((long)(abs * sign));
 }
