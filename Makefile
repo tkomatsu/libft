@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/03/16 11:36:55 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/03/17 15:11:32 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -163,8 +163,11 @@ fclean:
 
 re: fclean $(NAME)
 
-debug: CFLAGS += $(DEBUG_FLAGS)
+debug: CFLAGS += -fsanitize=address $(DEBUG_CFLAGS)
 debug: re
+
+leak: CFLAGS += $(DEBUG_CFLAGS)
+leak: re
 
 test: debug
 	@$(CC) $(CFLAGS) $(INCLUDE) -g3 -L. -lft -o grademe test/main.c

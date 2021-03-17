@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 21:41:29 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/03/17 15:01:05 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/17 15:16:25 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,10 @@ long	ft_strtol(const char *nptr, char **endptr, int base)
 	limit = LONG_MAX;
 	if (sign < 0)
 		limit--;
+	abs = 0;
 	while (ft_isalnum(*nptr))
 	{
-		abs = get_num(abs, nptr, base, sign);
+		abs = get_num(abs, nptr, base, limit);
 		nptr++;
 		if (errno)
 			break ;
