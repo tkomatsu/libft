@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 21:41:29 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/03/17 15:16:25 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/21 18:19:45 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,34 @@ int	get_sign(const char **nptr)
 	return (1);
 }
 
-unsigned long	get_num(unsigned long abs, const char *nptr, int base, unsigned long limit)
+unsigned long	get_num(unsigned long a, const char *n, int b, unsigned long l)
 {
 	int	c;
 
-	if (ft_isdigit(*nptr))
-		c = *nptr - '0';
+	if (ft_isdigit(*n))
+		c = *n - '0';
 	else
 	{
-		c = *nptr - 'a' + 10;
-		if (ft_isupper(*nptr))
-			c = *nptr - 'A' + 10;
+		c = *n - 'a' + 10;
+		if (ft_isupper(*n))
+			c = *n - 'A' + 10;
 	}
-	abs = abs * base + c;
-	if (limit < abs)
+	if (c > b)
+		errno = EINVAL;
+	if (!errno)
+		a = a * b + c;
+	if (l < a)
 		errno = ERANGE;
-	return (abs);
+	return (a);
+}
+
+long	return_long(int sign, unsigned long abs)
+{
+	if (errno == ERANGE && sign < 0)
+		return (LONG_MIN);
+	else if (errno == ERANGE)
+		return (LONG_MAX);
+	return ((long)(abs * sign));
 }
 
 long	ft_strtol(const char *nptr, char **endptr, int base)
@@ -83,9 +95,5 @@ long	ft_strtol(const char *nptr, char **endptr, int base)
 	}
 	if (endptr)
 		*endptr = (char *)nptr;
-	if (errno == ERANGE && sign < 0)
-		return (LONG_MIN);
-	else if (errno == ERANGE)
-		return (LONG_MAX);
-	return ((long)(abs * sign));
+	return (return_long(sign, abs));
 }
