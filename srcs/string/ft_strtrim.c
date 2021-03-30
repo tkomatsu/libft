@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 21:21:35 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/03/11 18:36:50 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/30 22:01:56 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = (size_t)(end - start + 1);
 	if (!s1[start])
 		len = 0;
-	ans = malloc((len + 1) * sizeof(char));
+	ans = malloc(len + 1);
 	if (!ans)
 		return (NULL);
 	ft_memcpy(ans, s1 + start, len);

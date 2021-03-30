@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 20:54:31 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/02/10 09:25:37 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/30 22:02:08 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (ft_strdup(s2));
 	if (!s2)
 		return (ft_strdup(s1));
-	ans = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	ans = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!ans)
 		return (NULL);
 	i = 0;

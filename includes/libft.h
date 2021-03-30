@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/03/16 11:36:26 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/03/30 21:59:17 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 char			*ft_strcat(char *dst, const char *src);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
-
-char			*ft_strnstr(const char *haystack, const char *needle,
-					size_t len);
+char			*ft_strnstr(const char *h, const char *n, size_t len);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_strcasecmp(const char *s1, const char *s2);
@@ -139,8 +137,7 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
+t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*del)(void *));
 void			ft_lstsort(t_list **lst, int (*f)(void*, void*));
 t_list			*ft_lstat(t_list *list_ptr, unsigned int nbr);
 void			ft_lstmerge(t_list **list1, t_list *list2);
