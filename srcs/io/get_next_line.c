@@ -6,20 +6,20 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 09:58:38 by tkomatsu          #+#    #+#             */
-/*   Updated: 2020/11/24 13:01:56 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/04/09 10:12:21 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	gnl_memerr(char **s1, char **s2, int flag)
+static int	memerr(char **s1, char **s2, int flag)
 {
 	free(*s1);
 	free(*s2);
 	return (flag);
 }
 
-static int	gnl_rewrite(char **s1, char **s2)
+static int	rewrite(char **s1, char **s2)
 {
 	char	*tmp;
 
@@ -34,7 +34,7 @@ static int	gnl_rewrite(char **s1, char **s2)
 	return (0);
 }
 
-static int	gnl_return(int fd, char **line, char **buf)
+static int	save_line(int fd, char **line, char **buf)
 {
 	char	*tmp;
 
@@ -42,55 +42,63 @@ static int	gnl_return(int fd, char **line, char **buf)
 	if (tmp)
 	{
 		*tmp = 0;
-		if (!(*line = ft_strdup(buf[fd])))
-			return (gnl_memerr(line, buf + fd, -1));
-		if (!(tmp = ft_strdup(tmp + 1)))
-			return (gnl_memerr(line, buf + fd, -1));
+		*line = ft_strdup(buf[fd]);
+		if (!*line)
+			return (memerr(line, buf + fd, -1));
+		tmp = ft_strdup(tmp + 1);
+		if (!tmp)
+			return (memerr(line, buf + fd, -1));
 		free(buf[fd]);
 		buf[fd] = tmp;
 		return (1);
 	}
 	else
 	{
-		if (!(*line = ft_strdup(buf[fd])))
-			return (gnl_memerr(line, buf + fd, -1));
+		*line = ft_strdup(buf[fd]);
+		if (!*line)
+			return (memerr(line, buf + fd, -1));
 		free(buf[fd]);
 		buf[fd] = NULL;
 		return (0);
 	}
 }
 
-static int	gnl_empty(char **line)
+static int	finish(int fd, char **line, char **buf, int rdno)
 {
-	*line = ft_strdup("");
-	return (0);
+	if (rdno < 0)
+		return (-1);
+	if (!buf[fd])
+	{
+		*line = ft_strdup("");
+		return (0);
+	}
+	return (save_line(fd, line, buf));
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	static char *buf[STATIC_MAX];
+	static char	*buf[STATIC_MAX];
 	char		*rdbuf;
 	int			rdno;
 
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	if (!(rdbuf = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+	rdbuf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!rdbuf)
 		return (-1);
-	while ((rdno = read(fd, rdbuf, BUFFER_SIZE)) > 0)
+	rdno = read(fd, rdbuf, BUFFER_SIZE);
+	while (rdno > 0)
 	{
 		rdbuf[rdno] = 0;
-		if (gnl_rewrite(&buf[fd], &rdbuf) < 0)
+		if (rewrite(&buf[fd], &rdbuf) < 0)
 			return (-1);
 		if (ft_strchr(buf[fd], '\n'))
 		{
 			free(rdbuf);
-			return (gnl_return(fd, line, buf));
+			return (save_line(fd, line, buf));
 		}
+		rdno = read(fd, rdbuf, BUFFER_SIZE);
 	}
 	free(rdbuf);
-	if (rdno < 0)
-		return (-1);
-	if (!buf[fd])
-		return (gnl_empty(line));
-	return (gnl_return(fd, line, buf));
+	return (finish(fd, line, buf, rdno));
 }
