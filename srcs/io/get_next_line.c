@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 09:58:38 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/04/09 10:12:21 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/04/12 16:32:00 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	get_next_line(int fd, char **line)
 	int			rdno;
 
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1);
+		return (reset_gnl(fd, buf));
 	rdbuf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!rdbuf)
 		return (-1);

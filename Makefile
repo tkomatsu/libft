@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/03/17 15:11:32 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/04/12 16:37:13 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,8 @@ IO_FILES =  ft_putchar_fd.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
 			ft_putstr_fd.c \
-			get_next_line.c
+			get_next_line.c \
+			reset_gnl.c
 
 IO_SRCS = $(addprefix $(IO_DIR), $(IO_FILES))
 

@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/03/30 21:59:17 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/04/12 16:32:36 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ void			ft_lstmerge(t_list **list1, t_list *list2);
 ** *****************************************************************************
 */
 
+int				reset_gnl(int fd, char **buf);
 int				get_next_line(int fd, char **line);
 
 #endif
