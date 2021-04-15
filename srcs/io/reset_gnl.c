@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 16:31:39 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/04/12 16:32:06 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/04/15 13:58:32 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	reset_gnl(int fd, char **buf)
 {
-	int i;
+	int	i;
 
 	if (fd == -1)
 	{
