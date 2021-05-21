@@ -6,7 +6,7 @@
 #    By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/19 22:09:18 by tkomatsu          #+#    #+#              #
-#    Updated: 2021/05/11 15:32:55 by tkomatsu         ###   ########.fr        #
+#    Updated: 2021/05/21 16:11:16 by tkomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,12 @@ CTYPE_FILES = ft_isalnum.c \
 			  ft_toupper.c
 
 CTYPE_SRCS = $(addprefix $(CTYPE_DIR), $(CTYPE_FILES))
+
+HASH_DIR = hash/
+
+HASH_FILES = hash.c
+
+HASH_SRCS = $(addprefix $(HASH_DIR), $(HASH_FILES))
 
 IO_DIR = io/
 
@@ -125,6 +131,7 @@ STR_SRCS = $(addprefix $(STR_DIR), $(STR_FILES))
 SRC_DIR = srcs/
 
 SRC_FILES = $(CTYPE_SRCS) \
+			$(HASH_SRCS) \
 			$(IO_SRCS) \
 			$(LIST_SRCS) \
 			$(MEM_SRCS) \
@@ -149,6 +156,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	@mkdir -p $(OBJ_DIR)$(CTYPE_DIR)
+	@mkdir -p $(OBJ_DIR)$(HASH_DIR)
 	@mkdir -p $(OBJ_DIR)$(IO_DIR)
 	@mkdir -p $(OBJ_DIR)$(LIST_DIR)
 	@mkdir -p $(OBJ_DIR)$(MEM_DIR)

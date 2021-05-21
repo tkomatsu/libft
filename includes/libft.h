@@ -6,7 +6,7 @@
 /*   By: tkomatsu <tkomatsu@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:43:15 by tkomatsu          #+#    #+#             */
-/*   Updated: 2021/04/12 16:32:36 by tkomatsu         ###   ########.fr       */
+/*   Updated: 2021/05/21 16:29:37 by tkomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,5 +150,23 @@ void			ft_lstmerge(t_list **list1, t_list *list2);
 
 int				reset_gnl(int fd, char **buf);
 int				get_next_line(int fd, char **line);
+
+/*
+** *****************************************************************************
+** hash table
+** *****************************************************************************
+*/
+
+typedef struct s_hash {
+	char			*name;
+	char			*value;
+	struct s_hash	*next;
+} t_hash;
+
+#define HASHSIZE 127
+
+int				get_hash(char *key);
+void			set_value(t_hash **list, char *key, char *value);
+char			*get_value(t_hash **list, char *key);
 
 #endif
